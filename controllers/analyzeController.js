@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import axios from 'axios';
 import sharp from 'sharp';
-
+console.log("its enter in analyze")
 export const analyzeByCategory = async (req, res) => {
   const { category, description = "Default room description" } = req.body;
   const images = req.files;
@@ -67,6 +67,7 @@ export const analyzeByCategory = async (req, res) => {
     );
 
     const rawReply = response.data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    console.log("rawReply:::::::::::::::::",rawReply)
     let cleaned = rawReply.trim();
     if (cleaned.startsWith('```')) {
       cleaned = cleaned.replace(/```(json)?/g, '').trim();
