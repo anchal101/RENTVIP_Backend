@@ -69,7 +69,7 @@ export const analyzeByCategory = async (req, res) => {
     console.log(`🧠 [${category.toUpperCase()}] Gemini Output:\n`, rawReply);
 
     // Log the entire response for debugging
-    console.log("Full API Response:", response.data);
+    // console.log("Full API Response:", response.data);
 
     let cleaned = rawReply.trim();
     if (cleaned.startsWith('```')) {
